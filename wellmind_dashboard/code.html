@@ -1,0 +1,287 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>WellMind AI - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#00201d",
+                        "on-surface": "#191c1e",
+                        "background": "#f7f9fb",
+                        "on-secondary-container": "#3a6d66",
+                        "outline-variant": "#c1c7ce",
+                        "tertiary": "#34424a",
+                        "surface": "#f7f9fb",
+                        "tertiary-container": "#4b5962",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-tertiary-container": "#c0cfda",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-tint": "#356382",
+                        "on-primary-fixed": "#001e2f",
+                        "on-background": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#9fccf0",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#2d5b7a",
+                        "on-primary-container": "#a5d2f6",
+                        "inverse-primary": "#9fccf0",
+                        "on-tertiary-fixed-variant": "#3b4951",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#194f49",
+                        "primary": "#0f4361",
+                        "outline": "#72787e",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#d6e5ef",
+                        "surface-dim": "#d8dadc",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed-variant": "#194b69",
+                        "on-tertiary-fixed": "#0f1d25",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#cae6ff",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#bac9d3",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-surface-variant": "#41474d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#b7ede4",
+                        "secondary-fixed-dim": "#9cd1c8",
+                        "secondary": "#346760",
+                        "secondary-container": "#b7ede4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "xl": "64px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "container-max": "1200px",
+                        "lg": "40px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "14px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    },
+                    "boxShadow": {
+                        'ambient': '0px 4px 20px rgba(45, 91, 122, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        h1, h2, h3, h4, h5, h6, .font-manrope { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-full overflow-hidden flex flex-col md:flex-row">
+<!-- Mobile TopNav (Visible only on mobile) -->
+<nav class="md:hidden fixed top-0 left-0 w-full z-50 flex justify-between items-center px-md py-sm max-w-container-max mx-auto bg-surface dark:bg-surface shadow-sm text-primary dark:text-primary-fixed-dim">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">WellMind AI</div>
+<div class="flex items-center gap-sm">
+<button class="font-label-md text-label-md bg-error text-on-error px-4 py-2 rounded-lg">Emergency</button>
+<button class="material-symbols-outlined text-primary">menu</button>
+</div>
+</nav>
+<!-- SideNavBar (Hidden on Mobile, Visible on md+) -->
+<aside class="hidden lg:flex flex-col h-screen p-md gap-base docked full-height left-0 w-64 bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant dark:border-outline-variant text-primary dark:text-primary-fixed-dim flex-shrink-0 z-40">
+<div class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim mb-lg font-bold tracking-tight">WellMind AI</div>
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A gentle, softly lit portrait of a calm individual in a neutral setting, conveying peacefulness and stability in a warm-modern style. Soft, diffused lighting highlights subtle features, aiming to evoke a feeling of safety and emotional balance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2e3z-tHdkvXcVtf63c0Fdix8cUdj6PtzZ13kKbMBX85w3biRWfoE0nTP4fVWVyZxq6NyfJOvtslVbC6lw2p6Vr7Wq9nF7HHXuGwH_uvmmyJXNQAHAPIadF_au4WyBnXTIyaA3a4ZRJ9TTGinmHc9G3jwr7VZjNowocFCNr9jJAvi9LIl6z_KYEx9Ssnb62uAoV-ZUbuY-ZA10lwy5hBon_XAezDtWT3Nxoy7vpeesgaJQh7KoZ9Vp">
+</div>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface">WellMind Dashboard</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Your Mental Wellness Journey</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-xs">
+<!-- Active Tab (Since page intent matches general dashboard browsing, but let's assume 'Progress' is highly relevant for a dashboard showing history) -->
+<a class="flex items-center gap-sm p-sm rounded-lg hover:bg-surface-container-high dark:hover:bg-surface-container-high text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+                Mood History
+            </a>
+<a class="flex items-center gap-sm p-sm bg-secondary-container dark:bg-secondary-container text-on-secondary-container dark:text-on-secondary-container rounded-lg font-bold font-label-md text-label-md scale-[0.98] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+                Progress
+            </a>
+<a class="flex items-center gap-sm p-sm rounded-lg hover:bg-surface-container-high dark:hover:bg-surface-container-high text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                Recommendations
+            </a>
+</nav>
+<div class="mt-auto">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md font-semibold hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+                 Start Assessment
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden pt-[72px] md:pt-0 relative">
+<!-- TopNavBar (Web - full nav cluster) -->
+<header class="hidden md:flex justify-between items-center px-lg py-md w-full bg-surface dark:bg-surface z-30 sticky top-0">
+<!-- Space left for sidebar visually, nav links centered-ish -->
+<div class="flex-1"></div>
+<nav class="flex gap-lg font-label-md text-label-md">
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-semibold opacity-80 transition-all" href="#">Dashboard</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Assessments</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Chatbot</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors" href="#">Profile</a>
+</nav>
+<div class="flex-1 flex justify-end items-center gap-sm">
+<button class="font-label-md text-label-md text-error hover:bg-error-container px-4 py-2 rounded-lg transition-colors">Get Help</button>
+<button class="font-label-md text-label-md bg-error text-on-error px-4 py-2 rounded-lg shadow-sm hover:opacity-90 transition-opacity">Emergency</button>
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-gutter lg:p-lg pb-xl">
+<div class="max-w-container-max mx-auto space-y-gutter">
+<!-- Welcome & Risk Summary Section -->
+<section class="flex flex-col lg:flex-row gap-gutter">
+<!-- Welcome Hero -->
+<div class="flex-1 bg-surface-container-lowest rounded-2xl p-lg shadow-ambient relative overflow-hidden flex flex-col justify-center min-h-[240px]">
+<div class="relative z-10">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-xs">Good morning, Alex.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">You've logged 5 consecutive days of positive mood tracking. Consistency is key to building resilience.</p>
+<button class="mt-lg bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors inline-flex items-center gap-2">
+                                Start New Assessment <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Decorative gentle abstract shape -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 bg-secondary-container rounded-full opacity-30 blur-3xl pointer-events-none"></div>
+</div>
+<!-- Risk Summary Card -->
+<div class="w-full lg:w-1/3 bg-surface-container-lowest rounded-2xl p-lg shadow-ambient flex flex-col items-center justify-center text-center">
+<div class="w-20 h-20 rounded-full bg-secondary-container flex items-center justify-center mb-md relative">
+<!-- Gentle pulsating effect -->
+<div class="absolute inset-0 rounded-full bg-secondary-container animate-ping opacity-20"></div>
+<span class="material-symbols-outlined text-secondary text-[40px]" data-icon="psychology">psychology</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-xs">Low Risk</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Feeling Stable</p>
+<div class="w-full bg-surface-container-high rounded-full h-2 mb-2">
+<div class="bg-secondary h-2 rounded-full w-1/4"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Based on your recent assessment.</p>
+</div>
+</section>
+<!-- Bento Grid for Data -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Mood History Graph (Placeholder logic) -->
+<div class="col-span-1 md:col-span-2 bg-surface-container-lowest rounded-2xl p-md shadow-ambient h-80 flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md text-primary">Mood History</h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">more_horiz</button>
+</div>
+<!-- Simple visual representation of a graph using Flexbox -->
+<div class="flex-1 flex items-end gap-2 pt-4 relative border-b border-surface-variant">
+<!-- Y-Axis labels (approx) -->
+<div class="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-label-sm text-on-surface-variant py-2 opacity-50"><span class="">Great</span><span class="">Good</span><span class="">Neutral</span><span class="">Low</span></div>
+<div class="flex-1 flex items-end gap-2 ml-8 h-full"><div class="flex-1 bg-surface-variant hover:bg-primary-container transition-all rounded-t-lg h-[40%] relative group cursor-pointer">
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 shadow-sm">Mon: Neutral</div>
+</div>
+<div class="flex-1 bg-primary-container/50 hover:bg-primary-container transition-all rounded-t-lg h-[60%] relative group cursor-pointer">
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 shadow-sm">Tue: Good</div>
+</div>
+<div class="flex-1 bg-secondary-container hover:bg-secondary transition-all rounded-t-lg h-[80%] relative group cursor-pointer">
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 shadow-sm">Wed: Great</div>
+</div>
+<div class="flex-1 bg-primary-container/40 hover:bg-primary-container transition-all rounded-t-lg h-[50%] relative group cursor-pointer">
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 shadow-sm">Thu: Good</div>
+</div>
+<div class="flex-1 bg-secondary-container hover:bg-secondary transition-all rounded-t-lg h-[75%] relative group cursor-pointer">
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 shadow-sm">Fri: Great</div>
+</div>
+<div class="flex-1 bg-secondary hover:bg-secondary-fixed transition-all rounded-t-lg h-[90%] relative group cursor-pointer">
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 shadow-sm">Sat: Excellent</div>
+</div>
+<div class="flex-1 bg-secondary-container hover:bg-secondary transition-all rounded-t-lg h-[85%] relative group cursor-pointer">
+    <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface text-label-sm px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 shadow-sm">Sun: Great</div>
+</div></div>
+</div>
+<div class="flex justify-between ml-8 mt-2 text-label-sm text-on-surface-variant">
+<span class="">M</span><span class="">T</span><span class="">W</span><span class="">T</span><span class="">F</span><span class="">S</span><span class="">S</span>
+</div>
+</div>
+<!-- AI Check-in Bubble Context -->
+<div class="col-span-1 bg-surface-container-lowest rounded-[24px] rounded-bl-sm p-lg shadow-ambient border border-surface-variant flex flex-col relative overflow-hidden">
+<div class="flex items-center gap-sm mb-md z-10 relative">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[16px]">smart_toy</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-primary">WellMind Assistant</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-lg z-10 relative">"I noticed you've been reporting higher energy levels in the mornings. Would you like to set a brief intention for today to harness that energy?"</p>
+<div class="mt-auto flex flex-col gap-sm z-10 relative">
+<button class="w-full py-2 bg-surface-container text-on-surface rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors text-left px-4">Yes, let's do it.</button>
+<button class="w-full py-2 bg-surface-container text-on-surface rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors text-left px-4">Not right now, thanks.</button>
+</div>
+<!-- Subtle background texture -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-primary-fixed-dim/20 rounded-full blur-2xl"></div>
+</div>
+</section>
+<!-- Bottom Action / Insight area -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-gutter mt-lg">
+<div class="bg-surface-container-lowest rounded-2xl p-md shadow-ambient flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Journal Entry Tip</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Writing down 3 things you are grateful for can improve your evening mood.</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-md shadow-ambient flex items-center gap-md">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined">self_improvement</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Breathing Exercise</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Try a 4-7-8 breathing technique to lower current stress levels.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+
+
+</body></html>
